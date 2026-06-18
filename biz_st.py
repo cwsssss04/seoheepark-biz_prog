@@ -76,26 +76,24 @@ with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=False):
     with col1:
         try:
             img_mj = Image.open(image_path_mj)
-            st.image(img_mj, use_container_width=True, caption="마이클 잭슨")
+            st.image(img_mj, use_container_width=True, caption="마이클 잭슨입니다.")
         except FileNotFoundError:
             st.error("⚠️ 'MJ.jpg' 파일을 찾을 수 없습니다.")
             
     with col2:
         try:
             img_korea = Image.open(image_path_korea)
-            st.image(img_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습")
+            st.image(img_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습입니다.")
         except FileNotFoundError:
             st.error("⚠️ 'mj-korea.jpg' 파일을 찾을 수 없습니다.")
             
     with col3:
         try:
             img_bubbles = Image.open(image_path_bubbles)
-            st.image(img_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습")
+            st.image(img_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습입니다.")
         except FileNotFoundError:
             st.error("⚠️ 'mj-bubbles.png' 파일을 찾을 수 없습니다.")
             
-    st.caption("마이클 잭슨은 실제로 동물 러버라고 알려져있을 정도로, 침팬지를 제외하고도 기린, 라마 등을 키웠다")
-    st.caption("마이클 잭슨은 아이들을 좋아해서 여러 방법으로 아이들에게 기부하는 기부천사로도 알려져있다")
-    st.caption("그는 또한 환경 보호 운동에도 적극적으로 참여하며, 대표곡인 'Earth Song' 등을 통해 지구와 자연 보호의 메시지를 전하기도 했습니다.")
-
-
+    st.caption("마이클 잭슨은 실제로 동물 러버라고 알려져 있을 정도로, 침팬지를 제외하고도 기린, 라마 등을 키웠습니다.")
+    st.caption("마이클 잭슨은 아이들을 좋아해서 여러 방법으로 아이들에게 기부하는 기부천사로도 알려져 있습니다.")
+    st.caption("또한, 환경 보호 운동에도 적극적으로 참여하며, 대표곡인 'Earth Song' 등을 통해 지구와 자연 보호의 메시지를 전하기도 했습니다.")
