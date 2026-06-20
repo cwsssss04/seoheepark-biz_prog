@@ -2,7 +2,6 @@ import os
 import streamlit as st  
 from PIL import Image  
 
-# 💡 [해결 포인트] GitHub 구조에 맞게 'data' 폴더 경로를 제거하고 파일명만 직접 지정합니다.
 image_path_mj = "MJ.jpg"
 image_path_korea = "mj-korea.jpg"
 image_path_bubbles = "mj-bubbles.png"
