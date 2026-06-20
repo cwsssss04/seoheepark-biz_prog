@@ -2,14 +2,13 @@ import os
 import streamlit as st  
 from PIL import Image  
 
-# 파일 경로 설정 (스크립트 파일의 절대 경로 기준)
-base_dir = os.path.dirname(os.path.abspath(__file__))
-image_path_mj = os.path.join(base_dir, "data", "MJ.jpg")
-image_path_korea = os.path.join(base_dir, "data", "mj-korea.jpg")
-image_path_bubbles = os.path.join(base_dir, "data", "mj-bubbles.png")
+# [수정] Streamlit에서 가장 안전한 상대 경로 방식으로 이미지 경로를 설정합니다.
+# 만약 여전히 안 나온다면 "data/MJ.jpg" 대신 "MJ.jpg" 등으로 위치를 맞춰주면 됩니다.
+image_path_mj = os.path.join("data", "MJ.jpg")
+image_path_korea = os.path.join("data", "mj-korea.jpg")
+image_path_bubbles = os.path.join("data", "mj-bubbles.png")
 
 st.markdown("# 마이클 잭슨에 대해 <br> &nbsp;&nbsp;&nbsp;&nbsp; 알아보자 🕺👑", unsafe_allow_html=True)
-
 
 st.markdown(
     """
@@ -68,32 +67,30 @@ with st.expander("📈 3. 앨범 판매량 차트", expanded=False):
     st.bar_chart(chart_data)
 
 # 4. 마이클 잭슨의 모습
-with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=False):
+with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=True):  # 확인하기 편하도록 기본 열림(True)으로 변경했습니다.
     st.write("### 📷 마이클 잭슨의 다양한 모습")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        try:
-            img_mj = Image.open(image_path_mj)
-            st.image(img_mj, use_container_width=True, caption="마이클 잭슨의 모습")
-        except FileNotFoundError:
-            st.error("⚠️ 'MJ.jpg' 파일을 찾을 수 없습니다.")
+        # [수정] Image.open을 거치지 않고 st.image에 경로를 직접 전달하는 것이 Streamlit에서 가장 에러가 안 납니다.
+        if os.path.exists(image_path_mj):
+            st.image(image_path_mj, use_container_width=True, caption="마이클 잭슨의 모습")
+        else:
+            st.error("⚠️ 'data/MJ.jpg' 파일을 찾을 수 없습니다.")
             
     with col2:
-        try:
-            img_korea = Image.open(image_path_korea)
-            st.image(img_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습")
-        except FileNotFoundError:
-            st.error("⚠️ 'mj-korea.jpg' 파일을 찾을 수 없습니다.")
+        if os.path.exists(image_path_korea):
+            st.image(image_path_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습")
+        else:
+            st.error("⚠️ 'data/mj-korea.jpg' 파일을 찾을 수 없습니다.")
             
     with col3:
-        try:
-            img_bubbles = Image.open(image_path_bubbles)
-            st.image(img_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습")
-        except FileNotFoundError:
-            st.error("⚠️ 'mj-bubbles.png' 파일을 찾을 수 없습니다.")
+        if os.path.exists(image_path_bubbles):
+            st.image(image_path_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습")
+        else:
+            st.error("⚠️ 'data/mj-bubbles.png' 파일을 찾을 수 없습니다.")
             
     st.caption("마이클 잭슨은 실제로 동물 러버라고 알려져 있을 정도로, 침팬지를 제외하고도 기린, 라마 등을 키웠습니다.")
     st.caption("마이클 잭슨은 아이들을 좋아해서 여러 방법으로 아이들에게 기부하는 기부천사로도 알려져 있습니다.")
-    st.caption("또한, 환경 보호 운동에도 적극적으로 참여하며, 대표곡인 'Earth Song' 등을 통해 지구와 자연 보호의 메시지를 전하기도 했습니다.")
+    st.caption("또한, 환경 보호 운동에도 적극적으로 참여하며, 대표곡인 'Earth Song' 등을 통해 지구와 자연 보호의 메시지를 전하기도 했습니다.") 전하기도 했습니다.")
