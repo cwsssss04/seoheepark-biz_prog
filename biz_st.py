@@ -44,12 +44,13 @@ with st.expander("👤 1. 인물소개", expanded=False):
         * [마이클 잭슨 유튜브 채널](https://www.youtube.com/user/michaeljacksonVEVO)
         
         > 💬 **마이클 잭슨의 명언**  
-        ''',
-        unsafe_allow_html=True
+        '''
     )
-    
+    # 💡 [해결 포인트] white-space: nowrap 스타일을 주어 화면이 작아도 '뿐이다.'가 절대 밑으로 떨어지지 않게 만듭니다.
     st.markdown(
-        '''> "사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이<br>다."''',
+        挂
+        > <span style="white-space: nowrap; display: inline-block;">"사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이다."</span>
+        挂, 
         unsafe_allow_html=True
     )
     
