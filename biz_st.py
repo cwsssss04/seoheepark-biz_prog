@@ -18,6 +18,11 @@ st.markdown(
         font-weight: bold;
         color: #1E90FF;
     }
+    /* 💡 모든 이미지 캡션의 글자 크기를 살짝 줄여서 한 줄로 잘 나오게 만듭니다 */
+    .stImage div p {
+        font-size: 0.8rem !important;
+        white-space: nowrap; /* 글자가 절대 아래로 꺾이지 않고 한 줄로 나오게 강제 */
+    }
     </style>
     """,
     unsafe_allow_html=True
