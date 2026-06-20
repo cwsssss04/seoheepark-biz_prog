@@ -70,8 +70,9 @@ with st.expander("📈 3. 앨범 판매량 차트", expanded=False):
     st.bar_chart(chart_data)
 
 # 4. 마이클 잭슨의 모습
-with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=True):
+with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=False):
     st.write("### 📷 마이클 잭슨의 다양한 모습")
+    
     
     col1, col2, col3 = st.columns(3)
     
