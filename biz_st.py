@@ -65,32 +65,30 @@ with st.expander("📈 3. 앨범 판매량 차트", expanded=False):
     }
     st.bar_chart(chart_data)
 
-# 4. 마이클 잭슨의 모습 (들여쓰기 및 이미지 에러 완벽 수정)
+# 4. 마이클 잭슨의 모습
 with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=True):
     st.write("### 📷 마이클 잭슨의 다양한 모습")
     
     col1, col2, col3 = st.columns(3)
     
+    # 💡 [핵심 수정] Image.open() 과정 없이 경로 검사 후 st.image에 직접 경로를 전달합니다.
     with col1:
-        try:
-            img_mj = Image.open(image_path_mj)
-            st.image(img_mj, use_container_width=True, caption="마이클 잭슨의 모습")
-        except FileNotFoundError:
-            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n경로 확인: {image_path_mj}")
+        if os.path.exists(image_path_mj):
+            st.image(image_path_mj, use_container_width=True, caption="마이클 잭슨의 모습")
+        else:
+            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n확인한 경로: {image_path_mj}")
             
     with col2:
-        try:
-            img_korea = Image.open(image_path_korea)
-            st.image(img_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습")
-        except FileNotFoundError:
-            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n경로 확인: {image_path_korea}")
+        if os.path.exists(image_path_korea):
+            st.image(image_path_korea, use_container_width=True, caption="마이클 잭슨이 한국에 방문한 모습")
+        else:
+            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n확인한 경로: {image_path_korea}")
             
     with col3:
-        try:
-            img_bubbles = Image.open(image_path_bubbles)
-            st.image(img_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습")
-        except FileNotFoundError:
-            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n경로 확인: {image_path_bubbles}")
+        if os.path.exists(image_path_bubbles):
+            st.image(image_path_bubbles, use_container_width=True, caption="마이클 잭슨과 그의 애완 침팬지의 모습")
+        else:
+            st.error(f"⚠️ 이미지를 찾을 수 없습니다.\n\n확인한 경로: {image_path_bubbles}")
             
     st.caption("마이클 잭슨은 실제로 동물 러버라고 알려져 있을 정도로, 침팬지를 제외하고도 기린, 라마 등을 키웠습니다.")
     st.caption("마이클 잭슨은 아이들을 좋아해서 여러 방법으로 아이들에게 기부하는 기부천사로도 알려져 있습니다.")
