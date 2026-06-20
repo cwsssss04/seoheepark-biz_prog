@@ -44,10 +44,15 @@ with st.expander("👤 1. 인물소개", expanded=False):
         * [마이클 잭슨 유튜브 채널](https://www.youtube.com/user/michaeljacksonVEVO)
         
         > 💬 **마이클 잭슨의 명언**  
-        > "사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이다."
-        '''
+        ''',
+        unsafe_allow_html=True
     )
-
+    
+    st.markdown(
+        '''> "사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이<br>다."''',
+        unsafe_allow_html=True
+    )
+    
 # 2. 히트 앨범 판매량 데이터
 with st.expander("📊 2. 히트 앨범 판매량에 대한 데이터", expanded=False):
     st.write("### 📀 역대 최고 히트 앨범 판매량")
