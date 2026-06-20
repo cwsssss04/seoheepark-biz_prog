@@ -43,7 +43,6 @@ with st.expander("👤 1. 인물소개", expanded=False):
         * [마이클 잭슨 공식 홈페이지](https://www.michaeljackson.com)
         * [마이클 잭슨 유튜브 채널](https://www.youtube.com/user/michaeljacksonVEVO)
         
-        # 💡 [해결 포인트] 명언 문장 중간에 줄바꿈 없이 한 줄로 길게 이어 썼습니다.
         > 💬 **마이클 잭슨의 명언**  
         > "사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이다."
         '''
