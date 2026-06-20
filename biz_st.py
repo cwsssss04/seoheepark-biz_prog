@@ -66,12 +66,79 @@ with st.expander("📈 3. 앨범 판매량 차트", expanded=False):
     st.bar_chart(chart_data)
 
 # 4. 마이클 잭슨의 모습
+import os
+import streamlit as st  
+from PIL import Image  
+
+# 💡 [해결 포인트] GitHub 구조에 맞게 'data' 폴더 경로를 제거하고 파일명만 직접 지정합니다.
+image_path_mj = "MJ.jpg"
+image_path_korea = "mj-korea.jpg"
+image_path_bubbles = "mj-bubbles.png"
+
+# 메인 제목
+st.markdown("# 마이클 잭슨에 대해 <br> &nbsp;&nbsp;&nbsp;&nbsp; 알아보자 🕺👑", unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <style>
+    .section-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #1E90FF;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 1. 인물소개
+with st.expander("👤 1. 인물소개", expanded=False):
+    st.markdown(
+        '''
+        ### 👑 King of Pop
+        마이클 잭슨(1958 ~ 2009)은 대중음악 역사상 가장 성공한 아티스트입니다.
+        
+        * **대표적인 업적**
+            * 역사상 가장 많이 팔린 앨범 *Thriller* 보유 🏆
+            * 문워크(Moonwalk) 등 전설적인 댄스 퍼포먼스 창시 🕺
+            * 세계 평화를 위한 사회 공헌 활동 (*Heal the World*) 🕊️
+        
+        #### 🔗 외부 링크 공유
+        * [마이클 잭슨 공식 홈페이지](https://www.michaeljackson.com)
+        * [마이클 잭슨 유튜브 채널](https://www.youtube.com/user/michaeljacksonVEVO)
+        
+        > 💬 **마이클 잭슨의 명언** > "사람들은 내가 춤을 추기 때문에 무대에서 완벽하다고 생각하지만, 나는 그저 내 안의 음악을 표현할 뿐이다."
+        '''
+    )
+
+# 2. 히트 앨범 판매량 데이터
+with st.expander("📊 2. 히트 앨범 판매량에 대한 데이터", expanded=False):
+    st.write("### 📀 역대 최고 히트 앨범 판매량")
+    album_data = [
+        {"앨범명": "Thriller (1982년)", "추정 판매량": "7,000만 장 (역대 1위)"},
+        {"앨범명": "Bad (1987년)", "추정 판매량": "4,500만 장"},
+        {"앨범명": "Dangerous (1991년)", "추정 판매량": "3,200만 장"},
+        {"앨범명": "Off the Wall (1979년)", "추정 판매량": "2,000만 장"}
+    ]
+    st.dataframe(album_data, use_container_width=True)
+
+# 3. 앨범 판매량 차트
+with st.expander("📈 3. 앨범 판매량 차트", expanded=False):
+    st.write("### 📊 주요 앨범 판매량 시각화 (단위: 백만 장)")
+    chart_data = {
+        "Thriller": 70,
+        "Bad": 45,
+        "Dangerous": 32,
+        "Off the Wall": 20
+    }
+    st.bar_chart(chart_data)
+
+# 4. 마이클 잭슨의 모습
 with st.expander("🎬 4. 마이클 잭슨의 모습", expanded=True):
     st.write("### 📷 마이클 잭슨의 다양한 모습")
     
     col1, col2, col3 = st.columns(3)
     
-    # 💡 [핵심 수정] Image.open() 과정 없이 경로 검사 후 st.image에 직접 경로를 전달합니다.
     with col1:
         if os.path.exists(image_path_mj):
             st.image(image_path_mj, use_container_width=True, caption="마이클 잭슨의 모습")
