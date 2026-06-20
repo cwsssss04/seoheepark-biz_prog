@@ -26,7 +26,7 @@ unsafe_allow_html=True
 
 # 1. 인물소개
 with st.expander("👤 1. 인물소개", expanded=False):
-st.markdown(
+    st.markdown(
 '''
 ### 👑 King of Pop
 마이클 잭슨(1958 ~ 2009)은 대중음악 역사상 가장 성공한 아티스트입니다.
